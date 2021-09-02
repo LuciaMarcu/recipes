@@ -1,0 +1,29 @@
+<% provide(:title, 'All recipes') %>
+
+<h1>All recipes</h1>
+
+<%= will_paginate %>
+<div class="row">
+    <% @recipes.each do |item| %>        
+        <div class="col-sm-4">
+            <div class="box"> 
+               <article class="media">   
+                    <div class="media-content">
+                        <div class="content">          
+                            <%= image_tag(item.display_image, class:"img-fluid w-100 img-rounded")  if item.image.attached? %> 
+                            <p class="title">
+                                <br>
+                                <%= item.name %>
+                                <br><br>
+                            </p>              
+                            <p class="body">                                                   
+                                <%= item.content %>          
+                            </p>
+                        </div> 
+                    </div>
+                </article>
+            </div>          
+        </div>
+    <% end %>
+</div>
+<%= will_paginate %>

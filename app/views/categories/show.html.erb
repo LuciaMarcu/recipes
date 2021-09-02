@@ -1,0 +1,30 @@
+<% provide(:title, @category.name) %>
+
+<h1><%= @category.name %></h1>
+<div class="description">
+    <h4><%= @category.description %></h4>
+    <br><br><br>
+</div>
+<div class="row">
+    <% @recipes.each do |item| %>        
+        <div class="col-sm-4">
+            <div class="box"> 
+               <article class="media">   
+                    <div class="media-content">
+                        <div class="content">          
+                            <%= image_tag(item.display_image, class:"img-fluid w-100 img-rounded") if item.image.attached? %> 
+                            <p class="title">
+                                <br>
+                                <%= link_to item.name, recipe_path(item.id) %>
+                                <br><br>
+                            </p>              
+                            <p class="body">                                                   
+                                <%= item.content %>          
+                            </p>                            
+                        </div> 
+                    </div>
+                </article>
+            </div>          
+        </div>
+    <% end %>
+</div>

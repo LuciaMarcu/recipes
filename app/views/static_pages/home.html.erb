@@ -1,2 +1,12 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<% provide(:title, "Home")%>
+
+<div class="container-fluid bg-3 text-center">
+  <div class="center jumbotron">      
+      <h3>Welcome to the best place for your creativity in the kitchen</h3>   
+      <br><br><br>   
+      <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-warning" %>
+      <br><br><br><br><br><br> <br><br><br><br><br><br>
+  </div>
+  <h3>Explore most recent tastes</h3>    
+  </div>
+</div>

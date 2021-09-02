@@ -1,0 +1,15 @@
+<% provide(:title, @recipe.name) %>
+
+<div class="recipe">        
+    <h1 class="recipe-title"><%= @recipe.name %></h1>
+    <h3>                                                   
+        <%= @recipe.content %>
+         <hr/>           
+    </h3>  
+                             
+    <div class="text-center">
+        <%= image_tag(@recipe.display_image, class:"img-rounded") if @recipe.image.attached? %>              
+     </div>             
+                          
+</div> 
+           
