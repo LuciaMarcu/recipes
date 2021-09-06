@@ -2,6 +2,10 @@
 
 <div class="recipe">        
     <h1 class="recipe-title"><%= @recipe.name %></h1>
+    <% if logged_in? %>
+        <%= link_to "Edit recipe", edit_recipe_path %> |
+        <%= link_to 'Back', :back %>
+    <% end %>
     <h3>                                                   
         <%= @recipe.content %>
          <hr/>           

@@ -1,0 +1,17 @@
+<div class="card mb-3" style="max-width: 540px; padding-left: 10px">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <br>
+            <%= image_tag(recipe.display_image, class:"img-fluid w-100 img-rounded") if recipe.image.attached? %>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">                                
+                <h3 class="card-title"><%= recipe.name %></h3>
+                <p class="card-text"><%= recipe.content %></p>                   
+                <p class="card-text"><small class="text-muted">
+                     Posted <%= time_ago_in_words(recipe.created_at) %> ago.        
+                </p></small>                
+            </div>
+        </div>
+    </div>
+</div>
