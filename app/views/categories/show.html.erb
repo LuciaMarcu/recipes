@@ -20,7 +20,9 @@
                             </p>              
                             <p class="body">                                                   
                                 <%= item.content %>          
-                            </p>                            
+                            </p>
+                            <span class="user">By: <%= link_to item.user.name, item.user %></span>  
+                            <span style="float:right;">Posted <%= time_ago_in_words(item.created_at) %> ago.</span>                         
                         </div> 
                     </div>
                 </article>

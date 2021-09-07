@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
     end
 
     def create
-        @recipe = Recipe.new(recipe_params)
+        @recipe = current_user.recipes.build(recipe_params)
         @recipe.image.attach(params[:recipe][:image])
         if @recipe.save 
             flash[:success] = "Recipe saved"        
