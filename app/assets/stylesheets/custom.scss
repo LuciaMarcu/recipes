@@ -10,7 +10,7 @@
 /* universal */
 
 body {
-    padding-top: 60px;
+    padding-top: 60px;      
 }
 
 section {
@@ -227,4 +227,15 @@ aside {
 .gravatar_edit {
   margin-top: 15px;
 }
+
+.card-footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+}
+
+.card-deck .card{
+    padding-bottom:50px;
+}
+
 
