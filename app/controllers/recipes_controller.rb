@@ -45,5 +45,5 @@ end
 private
 
 def recipe_params
-    params.require(:recipe).permit(:name, :content, :category_id, :image)
+    params.require(:recipe).permit(:name, :content, :category_id, :image, :details)
 end

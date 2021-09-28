@@ -12,8 +12,12 @@
             <%= f.label :content %>
             <%= f.text_area :content, class: 'form-control' %>
 
+            <%= f.label :details %>
+            <%= f.text_area :details, class: 'form-control', size: "10x5" %>
+
             <%= f.label :category_id %>
-            <%= f.number_field :category_id, class: 'form-control' %>
+            <%= f.select :category_id, [["Breakfast", 1], ["Lunch", 2], ["Dinner", 3], ["Dessert", 4]], 
+                          prompt: "Select...", class: 'form-control' %>
 
             <%= f.label :image %>
             <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "form-control" %>            

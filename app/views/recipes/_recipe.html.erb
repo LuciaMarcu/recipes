@@ -6,11 +6,11 @@
         </div>
         <div class="col-md-8">
             <div class="card-body">                                
-                <h3 class="card-title"><%= recipe.name %></h3>
+                <h3 class="card-title"><%= link_to recipe.name, recipe_path(recipe.id) %></h3>
                 <p class="card-text"><%= recipe.content %></p>                   
                 <p class="card-text"><small class="text-muted">
                      Posted <%= time_ago_in_words(recipe.created_at) %> ago.        
-                </p></small>                
+                </p></small>                    
             </div>
         </div>
     </div>

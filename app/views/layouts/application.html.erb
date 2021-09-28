@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title) %> | Recipes </title>
+    <title><%= yield(:title) %> | EasyCooking </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
@@ -15,7 +15,7 @@
           <% end %>
         <%= yield %>       
         <%= render 'layouts/footer' %> 
-        <%= debug(params) if Rails.env.development? %>  
+        <!--<%= debug(params) if Rails.env.development? %>-->  
       
     </body>     
   </head> 

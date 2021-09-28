@@ -1,8 +1,13 @@
-<footer class="footer">  
-  <nav>
+<footer class="footer">
+  <div style="width: 50%; padding-left: 40px;">
+    <%= link_to "EasyCooking", root_path, id: "logo" %>  
+  </div> 
+  <nav class="navbar fixed-bottom navbar-light bg-light">
     <ul>
+      <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "About",   about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>      
+      <li><%= link_to "Contact", contact_path %></li>
+      <li><%= link_to "Help", help_path %></li>      
     </ul>
   </nav>
 </footer>

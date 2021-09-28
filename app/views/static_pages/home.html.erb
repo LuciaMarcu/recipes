@@ -2,7 +2,7 @@
 
 <div class="container-fluid bg-3 text-center">
     <div class="center jumbotron">      
-        <h3>Welcome to the best place for your creativity in the kitchen</h3>   
+        <h3>How to Get Motivated When You Don't Love Cooking</h3>   
         <br><br><br>   
         <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-warning" %>
         <br><br><br><br><br><br> <br><br><br><br><br><br>
@@ -14,15 +14,17 @@
   <% @recipes.each do |item| %>
     <div class="card">
       <%= link_to image_tag(item.display_image, class:"card-img-top img-fluid w-100"), recipe_path(item.id) if item.image.attached? %>
-    <div class="card-body">
-      <h5 class="card-title text-center"><%= item.name %></h5>
-      <p class="card-text"><%= item.content %></p>
+      <div class="card-body">
+        <br>
+        <p class="title"><%= item.name %></p>
+        <br>
+        <p class="card-text"><%= item.content %></p>
+      </div>
+      <div class="card-footer">
+        <span class="user">By: <%= link_to item.user.name, item.user %></span>
+        <small class="text-muted" style="float:right;">Posted <%= time_ago_in_words(item.created_at) %> ago.</small>
+      </div>
     </div>
-    <div class="card-footer">
-      <span class="user">By: <%= link_to item.user.name, item.user %></span>
-      <small class="text-muted" style="float:right;">Posted <%= time_ago_in_words(item.created_at) %> ago.</small>
-    </div>
-  </div>
   <% end %>
 </div>
 
