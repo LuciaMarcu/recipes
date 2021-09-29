@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+    before_action :correct_user, only: [:edit, :update]
 
     def index
         @recipes = Recipe.paginate(page: params[:page])
@@ -46,4 +47,9 @@ private
 
 def recipe_params
     params.require(:recipe).permit(:name, :content, :category_id, :image, :details)
+end
+
+def correct_user
+    @recipe = current_user.recipes.find_by(id: params[:id])
+    redirect_to root_url if @recipe.nil?
 end
