@@ -13,7 +13,7 @@
                             <%= image_tag(item.display_image, class:"img-fluid w-100 img-rounded")  if item.image.attached? %> 
                             <p class="title">
                                 <br>
-                                <%= item.name %>
+                                <%= link_to item.name, recipe_path(item.id) %>
                                 <br><br>
                             </p>              
                             <p class="body">                                                   

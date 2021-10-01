@@ -3,10 +3,19 @@
 <div class="recipe">    
     <% if logged_in? && current_user?(@recipe.user) %>
     <div class="buttons">
-        <%= link_to "Edit recipe", edit_recipe_path %> |
-        <%= link_to 'Back', :back %>
-    <div>
-    <% end %>
+        <%= link_to "Edit recipe", edit_recipe_path %> | <%= link_to "Delete", @recipe, method: :delete, 
+                                                            data: {confirm: "Are you sure?"}%>
+    </div>
+    <% elsif logged_in? && current_user.admin? && !current_user?(@recipe.user) %>
+     <div class="buttons">
+        <%= link_to "Delete", @recipe, method: :delete, data: {confirm: "Are you sure?"}%>
+     </div>
+    <% end %>    
+    
+    <%= link_to 'Back', :back %>
+
+    
+    
     <h2 class="recipe-title"><%= @recipe.name %></h2>    
     <div class="text" style="padding-left:200px; padding-right: 200px;">                                                   
         <%= @recipe.content %>                   
