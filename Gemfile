@@ -10,6 +10,8 @@ gem 'faker', '~> 2.18'
 gem 'will_paginate', '~> 3.3', '>= 3.3.1'
 gem 'bootstrap-will_paginate', '~> 1.0'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+gem 'bulma-rails', '~> 0.9.1'
+gem "aws-sdk-s3", require: false
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets

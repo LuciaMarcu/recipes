@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bulma";
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -7,15 +8,11 @@
   box-sizing:         border-box;
 }
 
+.notification:not(:last-child){
+  margin-bottom: 0;
+}
+
 /* universal */
-
-body {
-    padding-top: 60px;      
-}
-
-section {
-    overflow: auto;
-}
 
 textarea {
     resize: vertical;
@@ -68,10 +65,7 @@ h4 {
     letter-spacing: -1px;
     padding-top: 9px;
     font-weight: bold;
-    &:hover {
-      color: #CAEDED;
-      text-decoration: none;
-    }
+    
   }
 
   .jumbotron {
@@ -103,46 +97,11 @@ h4 {
 
   /* footer */
 
-  footer {    
-    margin-top: 45px;
-    padding-top: 5px;
-    border-top: 1px solid #eaeaea;
-    color: #777;
-    a {
-      color: #555;
-      &:hover {
-        color: #222;
-      }
-    }
-     ul {
-      float: right;
-      list-style: none;
-      
-      li {
-        float: left;
-        margin-left: 15px;
-      }
-    }
-
+  .navbar {
+    margin-bottom: 0px;
   }
 
-  @media (max-width: 800px) {
-    footer {
-      small {
-        display: block;
-        float: none;
-        margin-bottom: 1em;
-      }
-      ul {
-        float: none;
-        padding: 0;
-        li {
-          float: none;
-          margin-left: 0;
-        }
-      }
-    }
-  }
+ 
 
   .title {
     text-align: center;
@@ -195,17 +154,7 @@ input[type=file]::file-selector-button {
   justify-content: center;
 }
 
-/*.recipe-title {
-  text-align: left;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}*/
 
-hr {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border: 0;
-  border-top: 1px solid #CAEDED;
-}
 
 .recipe {
   padding: 0 1.875rem;
@@ -258,9 +207,5 @@ aside {
     padding-bottom:50px;
 }
 
-.buttons {
-  text-align: right;
-  margin-top: 20px;
-}
 
 

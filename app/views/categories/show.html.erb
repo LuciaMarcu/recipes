@@ -1,26 +1,27 @@
 <% provide(:title, @category.name) %>
-
-<h1><%= @category.name %></h1>
-<div class="description">
-    <h4><%= @category.description %></h4>
+<div class="content">
     <br><br><br>
-</div>
-<div class="card-deck">
-    <% @recipes.each do |item| %>        
-        <div class="card">
-            <%= image_tag(item.display_image, class:"img-fluid w-100 img-rounded") if item.image.attached? %>
-            <div class="card-body">
-                <p class="title">
-                    <br>
-                    <%= link_to item.name, recipe_path(item.id) %>
-                    <br><br>
-                </p>              
-                <p class="card-text"><%= item.content %></p>
+    <p class="subtitle is-2 "><%= @category.name %></p>    
+    <p class="subtitle is-4"><%= @category.description %></p>
+        
+</div>   
+    <div class="card-deck">
+        <% @recipes.each do |item| %>        
+            <div class="card">
+                <%= image_tag(item.display_image, class:"img-fluid w-100 img-rounded") if item.image.attached? %>
+                <div class="card-body">
+                    <p class="title">
+                        <br>
+                        <%= link_to item.name, recipe_path(item.id) %>
+                        <br><br>
+                    </p>              
+                    <p class="card-text"><%= item.content %></p>
+                </div>
+                <div class="card-footer">
+                    <span class="user">By: <%= link_to item.user.name, item.user %></span>  
+                    <span style="float:right;">Posted <%= time_ago_in_words(item.created_at) %> ago.</span>                         
+                </div> 
             </div>
-            <div class="card-footer">
-                <span class="user">By: <%= link_to item.user.name, item.user %></span>  
-                <span style="float:right;">Posted <%= time_ago_in_words(item.created_at) %> ago.</span>                         
-            </div> 
-        </div>
-    <% end %>
-</div>
+        <% end %>
+    </div>
+

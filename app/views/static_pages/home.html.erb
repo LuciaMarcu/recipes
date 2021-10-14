@@ -1,14 +1,15 @@
 <% provide(:title, "Home")%>
 
 <div class="container-fluid bg-3 text-center">
-    <div class="center jumbotron">      
-        <h3>How to Get Motivated When You Don't Love Cooking</h3>   
-        <br><br><br>   
+    <div class="center jumbotron"> 
+        <br><br><br><br><br><br>     
+        <p class="subtitle is-3">How to Get Motivated When You Don't Love Cooking</p>   
+      
         <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-warning" %>
-        <br><br><br><br><br><br> <br><br><br><br><br><br>
+        <br><br><br><br><br><br> 
     </div>
-    <h3>Explore most recent tastes</h3>
-    <br><br>
+    <p class="subtitle is-3">Explore most recent tastes</p>
+    <br>
 </div>
 <div class="card-deck">
   <% @recipes.each do |item| %>
