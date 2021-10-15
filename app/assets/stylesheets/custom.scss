@@ -14,6 +14,10 @@
 
 /* universal */
 
+body {
+  padding-top: 70px;
+}
+
 textarea {
     resize: vertical;
 }
@@ -103,15 +107,8 @@ h4 {
 
  
 
-  .title {
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 400;
-    font-size: 1.75rem;
-    line-height: 1.1;
+  .title { 
     color: #1abc9c;
-    margin: 0px;
-    display: block;
 }
 
 /* forms */
@@ -140,21 +137,6 @@ input[type=file]::file-selector-button {
   padding-left: 160px;
   padding-right: 160px;
 }
-
-.box {
-  /*box-shadow:
-  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-  0 12.5px 10px rgba(0, 0, 0, 0.06),
-  0 22.3px 17.9px rgba(0, 0, 0, 0.034),
-  0 41.8px 33.4px rgba(0, 0, 0, 0.034),
-  0 100px 80px rgba(0, 0, 0, 0.12)
-;*/
-  display: flex;
-  justify-content: center;
-}
-
-
 
 .recipe {
   padding: 0 1.875rem;
@@ -197,15 +179,61 @@ aside {
   margin-top: 15px;
 }
 
-.card-footer{
-    position:absolute;
-    bottom:0;
-    width:100%;
+.all-recipes {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 1rem;
+	
+	@media only screen and (min-width: 1600px) {
+		grid-template-columns: repeat(6, 1fr);
+	}
+	@media only screen and (max-width: 1300px) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	@media only screen and (max-width: 1100px) { 
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@media only screen and (max-width: 800px) {
+		grid-template-columns: 1fr 1fr;
+	}
+	@media only screen and (max-width: 400px) {
+		grid-template-columns: 1fr;
+	}
+
 }
 
-.card-deck .card{
-    padding-bottom:50px;
+.recipes {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 1rem;
+	
+	@media only screen and (min-width: 1600px) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	@media only screen and (max-width: 1300px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@media only screen and (max-width: 1100px) { 
+		grid-template-columns: repeat(1, 1fr);
+	}
+	@media only screen and (max-width: 800px) {
+		grid-template-columns: 1fr 1fr;
+	}
+	@media only screen and (max-width: 400px) {
+		grid-template-columns: 1fr;
+	}
+
 }
 
+/*Cards footer to have same height*/
 
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-content {
+  flex: auto;
+}
 

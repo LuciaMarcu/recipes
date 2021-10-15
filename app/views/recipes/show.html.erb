@@ -1,40 +1,46 @@
 <% provide(:title, @recipe.name) %>
 
-<div class="recipe">     
-
-    <% if logged_in? && current_user?(@recipe.user) %>
-   
-    <nav class="level">
-        <div class="level-left is-mobile">                            
-            <%= link_to edit_recipe_path, class: "level-item" do %>
-                <p class="control has-text-grey">Edit</p>
-            <%end%>
-            <%= link_to @recipe, method: :delete, data: {confirm: "Are you sure you want to delete this post?"} do %>
-                <p class="control has-text-grey">Delete</p>
-            <%end%>
-        </div>
-    </nav>
-
-    <% elsif logged_in? && current_user.admin? && !current_user?(@recipe.user) %>
-     <div class="buttons">
-        <%= link_to "Delete", @recipe, method: :delete, data: {confirm: "Are you sure?"}%>
-     </div>
-    <% end %>    
-    
-    <%= link_to 'Back', :back %>
-    
-    <h2 class="recipe-title"><%= @recipe.name %></h2>    
-    <div class="text" style="padding-left:200px; padding-right: 200px;">                                                   
-        <%= @recipe.content %>                   
-    </div>  
-    <hr/>                          
-    <div class="text-center">
-        <%= image_tag(@recipe.display_image, class:"img-rounded") if @recipe.image.attached? %>              
-     </div>
-     <br>
-     <div class="text" style="padding-left:200px; padding-right: 200px;">                                                   
-        <%= simple_format(@recipe.details) %>                   
-    </div>               
-                          
+<div class="section">
+	<div class="container">        
+            <nav class="level">
+                    <div class="level-left">
+                        <%= link_to :back, class: "level-item" do %>
+                            <p class="control has-text-grey">Back</p>
+                        <% end %>
+                    </div>
+                        <% if logged_in? && current_user?(@recipe.user) %>          
+                        <div class="level-right is-mobile">                            
+                            <%= link_to edit_recipe_path, class: "level-item" do %>
+                                <p class="control has-text-grey">Edit</p>
+                            <%end%>
+                            <%= link_to @recipe, method: :delete, data: {confirm: "Are you sure you want to delete this post?"} do %>
+                                <p class="control has-text-grey">Delete</p>
+                            <%end%>
+                        </div>
+                </nav>
+            <% elsif logged_in? && current_user.admin? && !current_user?(@recipe.user) %>
+                <div class="buttons">
+                    <%= link_to "Delete", @recipe, method: :delete, data: {confirm: "Are you sure?"}%>
+                </div>
+            <% end %>  
+            <div class="columns is-mobile is-centered">
+                <div class="column is-8">
+                    <h1 class="title is-3"><%= @recipe.name %></h1> 
+                    <br>   
+                    <div class="subtitle is-4">                                                   
+                        <%= @recipe.content %>                   
+                    </div>
+            
+                    <hr/>                                
+                    <div class="text-center">
+                        <%= image_tag(@recipe.display_image, class:"img-rounded") if @recipe.image.attached? %>              
+                    </div>
+                    <br>
+                    <div class="content" >                                                   
+                        <%= simple_format(@recipe.details) %>                   
+                    </div> 
+                </div> 
+            </div>    
+    </div>                       
 </div> 
            

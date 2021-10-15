@@ -3,27 +3,28 @@
 <h1>All recipes</h1>
 
 <%= will_paginate %>
-<div class="row">
-    <% @recipes.each do |item| %>        
-        <div class="col-sm-4">
-            <div class="box"> 
-               <article class="media">   
-                    <div class="media-content">
-                        <div class="content">          
+<div class="all-recipes">
+    <% @recipes.each do |item| %>           
+            <div class="card">
+                <div class="card-image">
+                    <%= link_to recipe_path(item.id) do %> 
+                        <figure class="image is-4by3">          
                             <%= image_tag(item.display_image, class:"img-fluid w-100 img-rounded")  if item.image.attached? %> 
-                            <p class="title">
-                                <br>
-                                <%= link_to item.name, recipe_path(item.id) %>
-                                <br><br>
-                            </p>              
-                            <p class="body">                                                   
-                                <%= item.content %>          
-                            </p>
-                        </div> 
-                    </div>
-                </article>
-            </div>          
-        </div>
+                        </figure>
+                    <% end %>
+                </div> 
+                <br>      
+                <%= link_to recipe_path(item.id) do %>
+                    <h1 class="subtitle is-4" style="color: #1abc9c;">
+                            <%= item.name %>
+                    </h1>
+                <% end %>
+                    <div class="content">                
+                        <%= item.content %> 
+                    </div>    
+                </div>          
+            
+      
     <% end %>
 </div>
 <%= will_paginate %>

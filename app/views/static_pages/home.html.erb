@@ -11,22 +11,32 @@
     <p class="subtitle is-3">Explore most recent tastes</p>
     <br>
 </div>
-<div class="card-deck">
-  <% @recipes.each do |item| %>
-    <div class="card">
-      <%= link_to image_tag(item.display_image, class:"card-img-top img-fluid w-100"), recipe_path(item.id) if item.image.attached? %>
-      <div class="card-body">
-        <br>
-        <p class="title"><%= item.name %></p>
-        <br>
-        <p class="card-text"><%= item.content %></p>
-      </div>
-      <div class="card-footer">
-        <span class="user">By: <%= link_to item.user.name, item.user %></span>
-        <small class="text-muted" style="float:right;">Posted <%= time_ago_in_words(item.created_at) %> ago.</small>
-      </div>
-    </div>
-  <% end %>
+<div class="recipes">       
+    <% @recipes.each do |item| %>           
+        <div class="card">
+          <div class="card-image">
+            <%= link_to recipe_path(item.id) do %> 
+                <figure class="image is-4by3">          
+                    <%= image_tag(item.display_image, class:"img-fluid w-100 img-rounded")  if item.image.attached? %> 
+                </figure>
+            <% end %>
+          </div> 
+          <br>
+          <div class="card-content">                                  
+             <%= link_to recipe_path(item.id) do %>
+                <p class="subtitle is-4" style="color: #1abc9c;"><%= item.name %></p>
+             <% end %>
+             <div class="content">                
+                <%= item.content %> 
+             </div>                            
+          </div>
+          <div>
+            <footer class="card-footer">                         
+              <p>Posted <%= time_ago_in_words(item.created_at) %> ago by: <%= link_to item.user.name, item.user %></p>                               
+            </footer>
+          </div>   
+      </div>          
+    <% end %>
 </div>
 
 
